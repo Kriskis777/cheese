@@ -1,0 +1,412 @@
+﻿<krpano version="1.20.11"  showerrors="false" logkey="false" debugmode="false" debugkeys="false" debugjsactions="false" debugjsplugins="false" >
+
+	<!-- showerrors="false" logkey="false" debugmode="false" debugkeys="false" debugjsactions="false" debugjsplugins="false" -->
+ 
+	<include url="click_navigator.xml" />
+	
+	<include url="info_window/inf_w.xml" />
+	
+	<include url="skin/vtourskin.xml" />
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="false"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               maps_loadonfirstuse="true"
+	               gyro="true"
+	               gyro_keeplookingdirection="false"
+	               webvr="true"
+	               webvr_keeplookingdirection="true"
+	               webvr_prev_next_hotspots="true"
+	               autotour="false"
+	               littleplanetintro="false"
+	               followmousecontrol="false"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="false"
+	               thumbs_text="true"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="false"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	         deeplinking="false"
+	               loadscene_flags="KEEPVIEW"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext=""
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="0x2D3E50"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="1"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+ 
+	 
+	 <include url="skin/vtourskin_design_ultra_light.xml" /> 
+ 
+		 <include url="%FIRSTXML%/plugins/showtext.xml" />
+	<!-- Textstyle TextG3 -->
+	<textstyle name="TextG3"
+	           font="Arial" fontsize="14" fontsize.mobile="16" bold="false" italic="true" xoffset="50" yoffset="-20"  
+	           background="true" backgroundcolor="0x2D3E50" backgroundalpha="0.9" border="false" borderwidth="1" bordercolor="0xFFFFFF" roundedge="3"
+	           textcolor="0xFFFFFF"  shadow="2.0"     textshadowrange="4.0" textshadowcolor="0x000000" padding="4 5"  textalign="center"  />
+	   
+	 <!-- Логотип  Новосибпано --> 		
+	 <layer name="logo" type="text" keep="true" backgroundalpha="0.4" css="color:#FFFFFF; font-size:12px;"  align="rightbottom" alpha="0.4" x="10" y="1" zorder="90"
+			padding="3 8" bg="true" bgcolor="0x2D3E50"  bgroundedge="3"
+		   onover="set(alpha, 1); " onout="set(alpha, 0.4);"   
+		   onhover="showtext(Создание виртуальных туров, TextG3)"
+		   onclick="openurl('https://novosibpano.ru/',  _blank);"
+		   html="Novosibpano.ru"
+           />
+		   
+		
+
+	<!-- Имя панорамы --> 			   		
+	<style name="butt_txt" keep="false" type="text" align="righttop" x="10" y="10" x.mobile="5" y.mobile="5" padding="6 8" padding.mobile="3 4" bgborder="0 0xFFFFFF 0" bgroundedge="3" bgshadow="3 3 15 0x000000 0.5"  
+				css="font-family:Verdana; font-size:16px; color:#414c54; text-align:center;" 
+				css.mobile="font-family:Verdana; font-size:12px; color:#414c54; text-align:center;"
+				wordwrap="true" vcenter="true"	
+				bgcolor="0xe4e1d2"  bgalpha="0.9" html="Text..." />
+		
+		   
+	<events name="title_scen" keep="true" 
+			onclick="" 
+			onnewscene="copy(layer[nam_scen].html, scene[get(xml.scene)].title);" 
+			onviewchanged=""
+	/>
+		   
+	<!-- Имя панорамы --> 			   		
+	<layer name="nam_scen" style="butt_txt"  keep="true"  align="lefttop"  enabled="false"  html="Text..." />
+	
+		    
+		   
+	
+	<scene name="scene_enter1" title="Вход и сырная лавка" onstart="" thumburl="panos/enter1.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="-90.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/enter1.tiles/preview.jpg" />
+
+		<image prealign="0|-83.49838645826566|0">
+			<cube url="panos/enter1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-91.640" atv="26.513" linkedscene="scene_enter2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-158.018" atv="21.060" linkedscene="scene_small_hall1" />
+
+	</scene>
+ 
+	<scene name="scene_enter2" title="Вход и сырная лавка" onstart="" thumburl="panos/enter2.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/enter2.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/enter2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="89.584" atv="33.117" linkedscene="scene_enter1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="137.635" atv="32.218" linkedscene="scene_small_hall1" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-28.264" atv="35.070" linkedscene="scene_vip" />
+		<hotspot name="spot4" style="skin_hotspotstyle" ath="-2.046" atv="19.640" linkedscene="scene_big_hall1" />
+
+	</scene>
+	
+	<scene name="scene_big_hall1" title="Основной зал" onstart="" thumburl="panos/big_hall1.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall1.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-2.374" atv="16.897" linkedscene="scene_big_hall2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-176.008" atv="11.420" linkedscene="scene_enter2" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-165.360" atv="17.122" linkedscene="scene_vip" />
+
+	</scene>
+
+	<scene name="scene_big_hall2" title="Основной зал" onstart="" thumburl="panos/big_hall2.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall2.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-173.673" atv="16.052" linkedscene="scene_big_hall1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-0.673" atv="14.778" linkedscene="scene_big_hall3" />
+
+	</scene>
+
+	<scene name="scene_big_hall3" title="Основной зал" onstart="" thumburl="panos/big_hall3.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall3.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall3.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-1.117" atv="21.624" linkedscene="scene_big_hall4" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="178.076" atv="16.562" linkedscene="scene_big_hall2" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-124.168" atv="10.009" linkedscene="scene_kitchen2" />
+		
+
+	</scene>
+
+	<scene name="scene_big_hall4" title="Основной зал" onstart="" thumburl="panos/big_hall4.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall4.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall4.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-0.267" atv="13.365" linkedscene="scene_big_hall5" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="176.528" atv="15.741" linkedscene="scene_big_hall3" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-124.774" atv="8.187" linkedscene="scene_kitchen1" />
+
+	</scene>
+
+	<scene name="scene_big_hall5" title="Основной зал" onstart="" thumburl="panos/big_hall5.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall5.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall5.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="2.469" atv="15.794" linkedscene="scene_big_hall6" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-178.446" atv="26.306" linkedscene="scene_big_hall4" />
+
+	</scene>
+
+	<scene name="scene_big_hall6" title="Основной зал" onstart="" thumburl="panos/big_hall6.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/big_hall6.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/big_hall6.tiles/%s/l%l/%0v/l%l_%s_%0v_%0h.jpg" multires="512,768,1536,2816,5632" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-12.079" atv="32.217" linkedscene="scene_wc" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="177.871" atv="19.307" linkedscene="scene_big_hall5" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="109.430" atv="40.371" linkedscene="scene_childrens" />
+
+	</scene>
+
+	<scene name="scene_childrens" title="детская комната" onstart="" thumburl="panos/childrens.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/childrens.tiles/preview.jpg" />
+
+		<image prealign="0.085188|87.952639|-0.00498">
+			<cube url="panos/childrens.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-91.516" atv="36.542" linkedscene="scene_big_hall6" />
+
+	</scene>
+
+
+	<scene name="scene_kitchen1" title="Кухня" onstart="" thumburl="panos/kitchen1.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/kitchen1.tiles/preview.jpg" />
+
+		<image prealign="0|-109.15272899989498|0">
+			<cube url="panos/kitchen1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-179.203" atv="16.037" linkedscene="scene_kitchen2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="54.427" atv="17.637" linkedscene="scene_big_hall4" />
+
+	</scene>
+
+	<scene name="scene_kitchen2" title="Кухня" onstart="" thumburl="panos/kitchen2.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/kitchen2.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/kitchen2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-0.361" atv="15.368" linkedscene="scene_kitchen1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="65.123" atv="20.028" linkedscene="scene_big_hall3" />
+
+	</scene>
+
+	<scene name="scene_small_hall1" title="Малый зал" onstart="" thumburl="panos/small_hall1.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/small_hall1.tiles/preview.jpg" />
+
+		<image prealign="0.030426|-177.480979|-0.468336">
+			<cube url="panos/small_hall1.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="16.084" atv="26.127" linkedscene="scene_enter1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="-174.117" atv="28.726" linkedscene="scene_small_hall2" />
+		
+		<layer name="info_1" style="butt_txt"  html="Информация" onclick="open_info(d2);"  />
+		
+	</scene>
+
+	<scene name="scene_small_hall2" title="Малый зал" onstart="" thumburl="panos/small_hall2.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/small_hall2.tiles/preview.jpg" />
+
+		<image prealign="0|-179.86180205034913|0">
+			<cube url="panos/small_hall2.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-1.731" atv="27.502" linkedscene="scene_small_hall1" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="178.313" atv="25.323" linkedscene="scene_small_hall3" />
+
+	</scene>
+
+	<scene name="scene_small_hall3" title="Малый зал" onstart="" thumburl="panos/small_hall3.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/small_hall3.tiles/preview.jpg" />
+
+		<image prealign="0.032154|177.897247|0.980766">
+			<cube url="panos/small_hall3.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="6.624" atv="20.822" linkedscene="scene_small_hall2" />
+		<hotspot name="spot2" style="skin_hotspotstyle" ath="176.431" atv="23.014" linkedscene="scene_small_hall4" />
+		<hotspot name="spot3" style="skin_hotspotstyle" ath="-88.828" atv="18.830" linkedscene="scene_wc2" />
+
+	</scene>
+
+	<scene name="scene_small_hall4" title="Малый зал" onstart="" thumburl="panos/small_hall4.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/small_hall4.tiles/preview.jpg" />
+
+		<image prealign="0|-178.53910369329873|0">
+			<cube url="panos/small_hall4.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="7.105" atv="23.310" linkedscene="scene_small_hall3" />
+
+	</scene>
+
+	<scene name="scene_vip" title="VIP-зал" onstart="" thumburl="panos/vip.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/vip.tiles/preview.jpg" />
+
+		<image prealign="0|-91.09813619480286|0">
+			<cube url="panos/vip.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="89.974" atv="24.609" linkedscene="scene_enter2" />
+
+
+
+	<layer name="info_1" style="butt_txt"  html="Информация" onclick="open_info(d1);"  />
+	
+	
+	</scene>
+ 
+
+	<scene name="scene_wc" title="уборная комната" onstart="" thumburl="panos/wc.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/wc.tiles/preview.jpg" />
+
+		<image prealign="0|90.97590763517655|0">
+			<cube url="panos/wc.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.806" atv="27.468" linkedscene="scene_big_hall6" />
+
+	</scene>
+
+ 
+	
+	<scene name="scene_wc2" title="уборная комната" onstart="" thumburl="panos/wc.tiles/thumb.jpg" lat="" lng="" heading="">
+		
+		<control bouncinglimits="calc:image.cube ? true : false" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/wc.tiles/preview.jpg" />
+
+		<image prealign="0|90.97590763517655|0">
+			<cube url="panos/wc.tiles/%s/l%l/%v/l%l_%s_%v_%h.jpg" multires="512,1024,2048,3840" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="36.806" atv="27.468" linkedscene="scene_small_hall3" />
+
+	</scene>
+ 
+
+</krpano>
